@@ -1,13 +1,58 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react';
+import Scoreboard from './Scoreboard';
+import MainBoard from './MainBoard';
 
-class App extends Component{
-    render(){
-        return (
-            <div>
-                <h1>My React App!!!</h1>
-            </div>
-        )
+const App = (props) => {
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestCore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+
+  const incrementScore = () => {
+    setScore(score + 1);
+  };
+
+  const incrementBestScore = () => {
+    if (bestScore === 0) {
+      setBestCore(score);
     }
-}
+    if (bestScore > 0) {
+      if (bestScore < score) {
+        setBestCore(score);
+      }
+    }
+  };
 
-export default App
+  const settleGameOver = () => {
+    setGameOver(true);
+  };
+
+  const handleGameOver = () => {
+    setScore(0);
+    setGameOver(false);
+  };
+
+  useEffect(() => {
+    incrementBestScore();
+  }, [score]);
+
+  return (
+    <div className="main-container">
+      <Scoreboard score={score} bestScore={bestScore} />
+      {!gameOver && (
+        <MainBoard
+          incrementScore={incrementScore}
+          //   incrementBestScore={incrementBestScore}
+          setGameOver={settleGameOver}
+        />
+      )}
+      {gameOver && (
+        <div className="game-over">
+          <p>Game over!</p>
+          <button onClick={handleGameOver}>Restart</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
