@@ -26,7 +26,7 @@ const App = (props) => {
     setGameOver(true);
   };
 
-  const handleGameOver = () => {
+  const restartGame = () => {
     setScore(0);
     setGameOver(false);
   };
@@ -43,12 +43,13 @@ const App = (props) => {
           incrementScore={incrementScore}
           //   incrementBestScore={incrementBestScore}
           setGameOver={settleGameOver}
+          gameOver={gameOver}
         />
       )}
       {gameOver && (
         <div className="game-over">
           <p>Game over!</p>
-          <button onClick={handleGameOver}>Restart</button>
+          <button onClick={restartGame}>Restart</button>
         </div>
       )}
     </div>

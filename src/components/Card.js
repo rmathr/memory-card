@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Card = (props) => {
   const [img, setImg] = useState(url);
   const [isClicked, setIsClicked] = useState(false);
-  console.log(props);
+  //   console.log(props);
 
   const url = props.url;
   //   console.log(img);
@@ -18,6 +18,8 @@ const Card = (props) => {
       //   props.incrementBestScore();
     } else {
       setIsClicked(true);
+      const elemObj = { name: props.name };
+      props.handleClickedElements(elemObj);
       props.incrementScore();
       //end game
     }
@@ -38,7 +40,7 @@ const Card = (props) => {
   return (
     // <div>aaa</div>
     // <img src={img} />
-    <img onClick={handleClick} src={url} />
+    <img className="card-img" onClick={handleClick} src={url} />
   );
 };
 
