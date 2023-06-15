@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-
-import meeseeks from '../assets/images/meeseeks.jpg';
-import morty from '../assets/images/morty.jpg';
-import poopybutthole from '../assets/images/poopybutthole.jpg';
-import rick from '../assets/images/rick.jpg';
-import summer from '../assets/images/summer.jpg';
+import charactersArray from './handleImages';
 
 export default function MainBoard(props) {
   const [clickedElements, setClickedElements] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const [index, setIndex] = useState(0);
+
+  const newArray = charactersArray.map((arr) => arr.slice());
+  console.log(newArray);
+  console.log(charactersArray);
 
   const handleClickedElements = (elem) => {
     setClickedElements(clickedElements.concat(elem));
@@ -35,30 +34,39 @@ export default function MainBoard(props) {
     ['bt', 'bv', 'cu', 'cx', 'dz', 'fj', 'hm', 'iq', 'li', 'mq'],
   ];
 
-  shuffleArray(flagsBase[0]);
+  //   shuffleArray(flagsBase[0]);
+  //   shuffleArray(newArray[0]);
 
   const incrementIndex = () => {
     setIndex(index + 1);
   };
 
   useEffect(() => {
-    if (clickedElements.length >= flagsBase[index].length) {
+    if (clickedElements.length >= newArray[index].length) {
       incrementIndex();
       cleanClickedElements();
     }
     console.log(clickedElements);
   }, [clickedElements, index]);
+  //   useEffect(() => {
+  //     if (clickedElements.length >= flagsBase[index].length) {
+  //       incrementIndex();
+  //       cleanClickedElements();
+  //     }
+  //     console.log(clickedElements);
+  //   }, [clickedElements, index]);
 
-  cards = flagsBase[index].map((url) => {
+  //   cards = flagsBase[index].map((url) => {
+  cards = newArray[index].map((obj) => {
     return (
       <Card
-        key={url}
+        key={obj.text}
         handleClickedElements={handleClickedElements}
         incrementScore={props.incrementScore}
         setGameOver={props.setGameOver}
-        // url={url}
-        url={`https://flagcdn.com/w320/${url}.png`}
-        name={url}
+        url={obj.image}
+        // url={`https://flagcdn.com/w320/${url}.png`}
+        name={obj.text}
       />
     );
   });
