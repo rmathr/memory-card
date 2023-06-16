@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@100;400;700&display=swap');
+
+.scoreboard{
+    height: fit-content;
+    min-height: 50px;
+    
+    display: flex;
+    flex-direction: row;
+    color: #eff9fe
+}
+
+.left_container, .right_container{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand_container{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand_img {
+    width: 64px;
+    height: auto;
+}
+
+.brand_text{
+    padding-left: 12px;
+    font-family: 'Creepster', cursive;
+    font-size: 2.5rem;
+}
+
+.scores_container {
+    background-color: rgba(36, 36, 36, 0.5);
+    /* width: 50%; */
+    display: flex;
+    flex-direction: row;
+    padding: 6px 0;
+    font-size: 1.2rem;
+}
+
+.show_score{
+    padding: 0 6px;
+    text-transform: uppercase;
+}
+
+.show_score:nth-child(2){
+    border-left: 1px solid white;
+}

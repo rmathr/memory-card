@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import styles from './MainBoard.module.css';
 import Card from './Card';
 import charactersArray from './handleImages';
+import _ from 'lodash';
 
 export default function MainBoard(props) {
   const [clickedElements, setClickedElements] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const [index, setIndex] = useState(0);
 
-  const newArray = charactersArray.map((arr) => arr.slice());
-  console.log(newArray);
-  console.log(charactersArray);
+  let imagesArray = charactersArray.map((arr) => arr.slice());
+  //   console.log(imagesArray);
+  //   console.log(charactersArray);
 
   const handleClickedElements = (elem) => {
     setClickedElements(clickedElements.concat(elem));
@@ -35,19 +37,23 @@ export default function MainBoard(props) {
   ];
 
   //   shuffleArray(flagsBase[0]);
-  //   shuffleArray(newArray[0]);
+  //   shuffleArray(imagesArray[0]);
+  //   imagesArray[0] = _.shuffle(imagesArray[0]);
 
   const incrementIndex = () => {
     setIndex(index + 1);
   };
 
   useEffect(() => {
-    if (clickedElements.length >= newArray[index].length) {
+    if (clickedElements.length >= imagesArray[index].length) {
       incrementIndex();
       cleanClickedElements();
     }
     console.log(clickedElements);
   }, [clickedElements, index]);
+
+  //   imagesArray[index] = _.shuffle(imagesArray[index]);
+
   //   useEffect(() => {
   //     if (clickedElements.length >= flagsBase[index].length) {
   //       incrementIndex();
@@ -57,7 +63,7 @@ export default function MainBoard(props) {
   //   }, [clickedElements, index]);
 
   //   cards = flagsBase[index].map((url) => {
-  cards = newArray[index].map((obj) => {
+  cards = imagesArray[index].map((obj) => {
     return (
       <Card
         key={obj.text}
@@ -72,7 +78,7 @@ export default function MainBoard(props) {
   });
 
   return (
-    <div className="main-board">
+    <div className={index > 4 ? styles.main_board_flex : styles.main_board}>
       {cards}
       {/* <Card
         incrementScore={props.incrementScore}

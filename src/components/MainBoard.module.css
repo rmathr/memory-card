@@ -1,0 +1,26 @@
+.main_board {
+    background-image: url(../assets/images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-top: 10dvh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 1fr 1fr; 
+    grid-template-columns: auto; 
+    grid-auto-flow: column;
+    gap: 20px;
+}
+
+.main_board_flex{
+    max-width: 100%;
+    padding-top: 10dvh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}

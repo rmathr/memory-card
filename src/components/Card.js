@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Card.module.css';
 
 const Card = (props) => {
   const [img, setImg] = useState(url);
@@ -40,7 +41,11 @@ const Card = (props) => {
   return (
     // <div>aaa</div>
     // <img src={img} />
-    <img className="card-img" onClick={handleClick} src={url} />
+    // <div className="cards">
+    <div className={styles.card}>
+      <img className={styles.card_img} onClick={handleClick} src={url} />
+      <p className={styles.card_text}>{props.name}</p>
+    </div>
   );
 };
 
