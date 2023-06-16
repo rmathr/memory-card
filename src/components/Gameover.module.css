@@ -1,0 +1,67 @@
+.gameover{
+    background-image: url(../assets/images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left bottom;
+    flex-grow: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameover_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30dvh;
+    width: 30%;
+    background-color: #1e2c51;
+    color: #eff9fe;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.gameover_message{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameover_message > p:first-of-type{
+    padding-bottom: 12px;
+}
+
+.restart_button > span{
+    display: flex;
+    align-items: center;
+}
+
+.restart_button > span > span {
+    padding: 0 8px;
+}
+
+.restart_button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 6px 14px;
+    border: none;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background-color: #eff9fe;
+    color: #1e2c51;
+}
+
+.svg_restart{
+    width: 22px;
+    height: auto;
+}
+

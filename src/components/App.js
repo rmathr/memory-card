@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Scoreboard from './Scoreboard';
 import MainBoard from './MainBoard';
+import Footer from './Footer';
+import Gameover from './Gameover';
+import EndGame from './EndGame';
 
 const App = (props) => {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(56);
   const [bestScore, setBestCore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
@@ -31,6 +34,11 @@ const App = (props) => {
     setGameOver(false);
   };
 
+  const handleWin = () => {
+    setScore(0);
+    setBestCore(0);
+  };
+
   useEffect(() => {
     incrementBestScore();
   }, [score]);
@@ -38,7 +46,7 @@ const App = (props) => {
   return (
     <div className="main-container">
       <Scoreboard score={score} bestScore={bestScore} />
-      {!gameOver && (
+      {!gameOver && bestScore < 58 && (
         <MainBoard
           incrementScore={incrementScore}
           //   incrementBestScore={incrementBestScore}
@@ -46,12 +54,11 @@ const App = (props) => {
           gameOver={gameOver}
         />
       )}
-      {gameOver && (
-        <div className="game-over">
-          <p>Game over!</p>
-          <button onClick={restartGame}>Restart</button>
-        </div>
-      )}
+      {gameOver && <Gameover restartGame={restartGame} bestScore={bestScore} />}
+
+      {bestScore == 58 && <EndGame handleWin={handleWin} />}
+
+      <Footer />
     </div>
   );
 };

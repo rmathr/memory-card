@@ -3,7 +3,9 @@
 .scoreboard{
     height: fit-content;
     min-height: 50px;
-    
+    background-color: #314189;
+    /* background-color:  #1e2c51; */
+    /* background-color: transparent; */
     display: flex;
     flex-direction: row;
     color: #eff9fe
@@ -37,7 +39,7 @@
 }
 
 .scores_container {
-    background-color: rgba(36, 36, 36, 0.5);
+    
     /* width: 50%; */
     display: flex;
     flex-direction: row;

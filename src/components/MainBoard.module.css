@@ -1,8 +1,16 @@
-.main_board {
+.main_board_container{
     background-image: url(../assets/images/background.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: left bottom;
     flex-grow: 1;
+    max-width: 100%;
+}
+
+
+.main_board {
+    
+
     max-width: 100%;
     padding-top: 10dvh;
     display: grid;

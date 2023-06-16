@@ -1,0 +1,15 @@
+.footer{
+    width: 100%;
+    height: 3dvh;
+    display: flex;
+    flex-direction: row;
+    background-color: #1e2c51;
+    align-items: center;
+    justify-content: center;
+    color: #eff9fe
+}
+
+.github_brand{
+    color: #eff9fe;
+    padding-left: 12px;
+}
