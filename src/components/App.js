@@ -6,7 +6,7 @@ import Gameover from './Gameover';
 import EndGame from './EndGame';
 
 const App = (props) => {
-  const [score, setScore] = useState(56);
+  const [score, setScore] = useState(0);
   const [bestScore, setBestCore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
@@ -49,7 +49,6 @@ const App = (props) => {
       {!gameOver && bestScore < 58 && (
         <MainBoard
           incrementScore={incrementScore}
-          //   incrementBestScore={incrementBestScore}
           setGameOver={settleGameOver}
           gameOver={gameOver}
         />

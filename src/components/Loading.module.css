@@ -1,0 +1,19 @@
+.loading{
+    display: flex;
+    flex-direction: row;
+}
+
+.loading > p {
+    font-size: 2rem;
+}
+
+.loading_img{
+    width: 50px;
+    height: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
